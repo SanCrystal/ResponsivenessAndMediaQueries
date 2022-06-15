@@ -117,19 +117,14 @@ form p a{
     display:none;
     position:absolute;
     right:0;
-    color: #fefefe;
     font-size: 10px;
     font-weight: 700;
-    background: hsl(0, 100%, 74%);
-    padding: 10px;
     width: 8px;
     height: 8px;
     border-radius: 21px;
     z-index: 2;
-    top: 15%;
+    top: 18%;
     left:85%;
-    text-align: center;
-    line-height: initial;
 
 }
 input, button{
