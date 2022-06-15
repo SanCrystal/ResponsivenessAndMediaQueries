@@ -19,7 +19,7 @@ main{
 
 .container{
     width:70vw;
-    height:70vh;
+    height:75vh;
     position: relative;
     background-color:hsl(0, 100%, 74%);
     padding:10px 30px;
@@ -48,6 +48,7 @@ main{
     display:flex;
     flex-direction:column;
     align-self: center;
+    padding:30px 0;
     
 }
 .content-1 h2{
@@ -74,6 +75,7 @@ form{
     border-radius: 8px;
     position:relative;
     z-index: 1;
+    box-shadow: 0px 4px 7px 0px hsl(249, 10%, 26%);
 }
 form p{
     color:hsl(249, 10%, 26%) ;
@@ -86,7 +88,49 @@ form p a{
 .form-group{
     margin-bottom:6px;
     width:100%;
+    position:relative;
+    margin-bottom: 15px;
     
+}
+.activeErrorMargin{
+    margin-bottom: 18px;
+}
+
+.form-group label{
+    display:none;
+    color:hsl(0, 100%, 74%);
+    font-size: 11px;
+    position:absolute;
+    bottom: -44%;
+    width:100%;
+    text-align: right;
+    padding: 0;
+    
+}
+.danger{
+    border-color:hsl(0, 100%, 74%);
+}
+.success{
+    border-color:hsl(154, 59%, 51%);
+}
+.error:not(.btn){
+    display:none;
+    position:absolute;
+    right:0;
+    color: #fefefe;
+    font-size: 10px;
+    font-weight: 700;
+    background: hsl(0, 100%, 74%);
+    padding: 10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 21px;
+    z-index: 2;
+    top: 15%;
+    left:85%;
+    text-align: center;
+    line-height: initial;
+
 }
 input, button{
     width:95%;
@@ -98,12 +142,23 @@ input, button{
 }
 button{
     width: 100%;
-    padding:10px 0;
+    padding:10px 0 10px 0;
+    margin-top: 15px;
     color:#fefefe;
     background-color: hsl(154, 59%, 51%);
 }
-input:not(:focus):not(:placeholder-shown):valid{
-    border-color: hsl(154, 59%, 51%) ;
+input:focus{
+    border-color:hsl(249, 10%, 26%);
+}
+input:not(:placeholder-shown):focus:invalid{
+    border-color: hsl(0, 100%, 74%) ;
+}
+input:not(:placeholder-shown):focus:invalid ~ .error,
+input:not(:placeholder-shown):invalid ~ .error,
+input:not(:placeholder-shown):invalid ~ label,
+input:not(:placeholder-shown):focus:invalid ~ label
+{
+    display:block;
 }
 
 .banner{
@@ -112,4 +167,167 @@ input:not(:focus):not(:placeholder-shown):valid{
     padding: 10px 0;
     border-radius: 8px;
     background-color:  hsl(248, 32%, 49%);
+    box-shadow: 4px 4px 7px 0px hsl(249, 10%, 26%);
 }
+
+
+/* Mobile devices  */
+@media only screen and (max-device-width: 640px) {
+    .container{
+        width:100vw;
+        height:100vh;
+        padding:0;
+        top:0;
+        margin:0;
+        overflow: scroll;
+        
+    }
+    .content{
+        width: 80%;
+        margin:auto;
+        flex-direction:column;
+        
+    }
+    .content-1{
+        text-align: center;
+        width:100%;
+        height:100%;
+        padding:30px 0;
+    }   
+    .content-1 p{
+        font-size: 15px;
+    }
+    .content-2{
+        width:100%;
+        height:100%;
+        padding:30px 0;
+    }
+    .form-group label{
+        width: 100%;
+        left:0;
+        text-align:right;
+    }
+    form p{
+        text-align: center;
+    }
+    
+}
+/* mobile devices max-device width of 480 */
+@media screen and (max-device-width: 480px) {
+    .container{
+        width:100vw;
+        height:100vh;
+        padding:0;
+        top:0;
+        margin:0;
+        overflow: scroll;
+        
+    }
+    .content{
+        width: 80%;
+        margin:0 auto;
+        font-size: 14px;
+        flex-direction: column;
+        padding:2px;
+    }form{
+        padding: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .form-group{
+        margin:7px auto;
+        
+    }
+    .form-group label{
+        width: 100%;
+        left:0;
+        text-align:right;
+    }
+    form p{
+        text-align: center;
+    }
+    input{
+        width:90%;
+        margin:0 auto;
+    }
+    .content-1{
+        text-align: center;
+        width:100%;
+        height:100%;
+        padding:30px 0;
+    }   
+    .content-2{
+        width:100%;
+        height:100%;
+        padding:20px 0;
+    }
+    .banner{
+        font-size: 13px;
+    }
+    
+}
+/* mobile devices max-device width of 480 and Landscape */
+@media screen and (max-device-width: 480px)
+and (orientation:landscape) {
+    .form-group{
+        margin:8px auto;
+   
+    }
+    .banner{
+        font-size: 14px;
+    }
+    
+}
+/* Tablets devices min-width 768 and max width 1024 */
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px) {
+    .container{
+        width:85vw;
+        height:70vh;
+        padding:0;
+        top:10%;
+        margin:0 auto;
+        
+        
+    }
+    .content{
+        align-items: center;
+        justify-content: space-between;
+        width: 95%;
+        
+        
+    }
+    .content-1{
+        text-align: center;
+        width:40%;
+        height:100%;
+        padding:30px 0;
+        margin-right: 15px;
+    }   .content-2{
+        width:60%;
+        height:100%;
+        padding:30px 6px 30px 0;
+        margin-left:15px;
+        margin-top:15px;
+    }
+    .form-group label{
+        width: 100%;
+        left:0;
+        text-align:right;
+    }
+    form p{
+        text-align: center;
+    }
+    .error:not(.btn){
+        top:7px;
+    }
+    form{
+        margin-top: 20px;
+    }
+    .banner{
+        font-size: 16px;
+    }
+}
+
