@@ -230,27 +230,28 @@ input:not(:placeholder-shown):focus:invalid ~ label
         flex-direction: column;
         padding:2px;
     }form{
-        padding: 7px;
+        padding: 15px 10px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
 
     }
     .form-group{
-        margin:7px auto;
+        display: flex;
+        justify-content: center;
         
     }
     .form-group label{
-        width: 100%;
+        width: 95%;
         left:0;
         text-align:right;
     }
     form p{
         text-align: center;
     }
-    input{
+    input,button{
         width:90%;
-        margin:0 auto;
+        margin:inherit auto;
     }
     .content-1{
         text-align: center;
